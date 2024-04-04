@@ -15,14 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-#Se importa las vistas
-from myapp import views
+#Include permite incluir un bloque de urls que vienen desde una app
+from django.urls import path, include
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #Se llama a cada función que se quiere ejecutar
-    path('', views.hello),
-    path('about/', views.about)
+    #Se trae desde myapp.urls las urls de esa app, y esto es lo que se debe de hacer, pues cada
+    #app debe ser responsable de sus propias urls. La cadena vacía significa que no hay nada que 
+    #hay antes de la ruta que se pone en el include.
+    path('', include('myapp.urls'))
 ]
