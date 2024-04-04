@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#Se importa las vistas
 from myapp import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Se llama a cada función que se quiere ejecutar
     path('', views.hello),
     path('about/', views.about)
-    
 ]
