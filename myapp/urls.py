@@ -10,4 +10,6 @@ urlpatterns = [
     path('about/', views.about),
     #Para poder ejecutar el hello, tenemos que ir a hello/nombre-del-usuario o cualquier otra cosa que sea string
     path('hello/<str:username>', views.hello),
+    path('projects/', views.projects),
+    path('tasks/<int:id>', views.tasks)
 ]
