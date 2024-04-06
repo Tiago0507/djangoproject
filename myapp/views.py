@@ -11,7 +11,11 @@ from django.shortcuts import get_object_or_404
 
 #Nueva función que será la primera cuando se visite el servidor
 def index(request):
-    return render(request, 'index.html')
+    title = 'Django course!!'
+    #Ahora se recibe como parámetro un diccionario que permitirá asignar el valor del título 
+    return render(request, 'index.html', {
+        'title': title
+    })
 
 #Ahora la función hello requiere dos parámetros, así que para poderla ejecutar tenemos que pasar otro string.
 def hello(request, username):
