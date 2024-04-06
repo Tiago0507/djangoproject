@@ -27,14 +27,20 @@ def about(request):
 
 def projects(request):
     #Para usar el Json primero se debe convertir los projects en una lista de python
-    projects = list(Project.objects.values())
+    #projects = list(Project.objects.values())
+    projects = Project.objects.all()
     #Al usar Json response, ya no necesitamos usar un String, sino que podemos directamente pasarle la lista de los 
     #objetos Project
-    return render(request, 'projects.html')
+    return render(request, 'projects.html', {
+        'projects': projects
+    })
 
 #Ahora tasks tendrá como otro param el id
-def tasks(request, id):
+def tasks(request):
     #Se guarda una tarea con el id especificado
-    task = get_object_or_404(Task, id=id)
+    #task = get_object_or_404(Task, id=id)
+    tasks = Task.objects.all()
     #Se usa % para concatenar el titulo de la tarea
-    return render(request, 'tasks.html')
+    return render(request, 'tasks.html', {
+        'tasks': tasks
+    })

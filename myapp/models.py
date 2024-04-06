@@ -21,3 +21,7 @@ class Task(models.Model):
   #on_delete se usa para darle la instrucción al programa de qué hacer cuando se elimine un proyecto, en este caso
   #se le está indicando que todo lo relacionado a el proyecto eliminado se eliminará en cascada.
   project = models.ForeignKey(Project, on_delete=models.CASCADE)
+  done = models.BooleanField(default=False)
+
+  def __str__(self):
+    return self.title + ' - ' + self.project.name
