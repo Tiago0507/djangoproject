@@ -7,6 +7,11 @@ class Project(models.Model):
   # Forma de decirle a Python que esto será un texto
   name = models.CharField(max_length=200)
 
+  #Método especial que me permite mostrar algo en la interfaz
+  def __str__(self):
+    return self.name
+
+
 # Se crea otra tabla para las tareas
 class Task(models.Model):
   title = models.CharField(max_length=200)

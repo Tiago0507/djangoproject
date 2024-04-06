@@ -1,3 +1,5 @@
+#Render permite usar las plantillas de django para renderizar htmls
+
 from django.shortcuts import render
 #Se importa Json porque es un lenguaje fácil de entender para el navegador
 from django.http import HttpResponse, JsonResponse
