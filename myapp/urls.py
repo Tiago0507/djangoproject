@@ -6,12 +6,12 @@ from . import views
 
 urlpatterns = [
     #Se llama a cada función que se quiere ejecutar
-    path('', views.index),
-    path('about/', views.about),
+    path('', views.index, name="index"),
+    path('about/', views.about, name="about"),
     #Para poder ejecutar el hello, tenemos que ir a hello/nombre-del-usuario o cualquier otra cosa que sea string
-    path('hello/<str:username>', views.hello),
-    path('projects/', views.projects),
-    path('tasks/', views.tasks),
-    path('create_task/', views.create_task),
-    path('create_project/', views.create_project)
+    path('hello/<str:username>', views.hello, name="hello"),
+    path('projects/', views.projects, name="projects"),
+    path('tasks/', views.tasks, name="tasks"),
+    path('create_task/', views.create_task, name="create_task"),
+    path('create_project/', views.create_project, name="create_project")
 ]
