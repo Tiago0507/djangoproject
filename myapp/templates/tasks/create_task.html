@@ -1,0 +1,9 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<h1>Create a new task</h1>
+
+<!--Aquí se trae el atributo form que se recibió en el diccionario de la función de views.py create_task-->
+<form action="" method="POST">
+  {% csrf_token %} {{form.as_p}}
+  <button>Save</button>
+</form>
+{% endblock %}

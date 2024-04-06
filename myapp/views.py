@@ -1,11 +1,12 @@
 #Render permite usar las plantillas de django para renderizar htmls
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #Se importa Json porque es un lenguaje fácil de entender para el navegador
 from django.http import HttpResponse, JsonResponse
 from .models import Project, Task
 #Esta importación permite en lugar de devolver un error, mostrar al usuario que no se ha encontrado la página con el 404
 from django.shortcuts import get_object_or_404
+from .forms import CreateNewTask, CreateNewProject
 
 # Create your views here.
 
@@ -31,7 +32,7 @@ def projects(request):
     projects = Project.objects.all()
     #Al usar Json response, ya no necesitamos usar un String, sino que podemos directamente pasarle la lista de los 
     #objetos Project
-    return render(request, 'projects.html', {
+    return render(request, 'projects/projects.html', {
         'projects': projects
     })
 
@@ -41,6 +42,29 @@ def tasks(request):
     #task = get_object_or_404(Task, id=id)
     tasks = Task.objects.all()
     #Se usa % para concatenar el titulo de la tarea
-    return render(request, 'tasks.html', {
+    return render(request, 'tasks/tasks.html', {
         'tasks': tasks
     })
+
+#Aquí se usa el archivo de forms.py para usar el form creado allá
+def create_task(request):
+    if request.method == 'GET':
+        return render(request, 'tasks/create_task.html', {
+            'form': CreateNewTask()
+        })
+    else:
+        Task.objects.create(title=request.POST['title'],
+                            description=request.POST['description'], project_id=2)
+        return redirect('/tasks/')
+
+def create_project(request):
+    if request.method == 'GET':
+        return render(request, 'projects/create_project.html', {
+            'form': CreateNewProject()
+        })
+    else:
+        Project.objects.create(name=request.POST['name'])
+        return render(request, 'projects/create_project.html', {
+            'form': CreateNewProject()
+        })
+

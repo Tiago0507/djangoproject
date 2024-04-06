@@ -1,6 +1,7 @@
+{% extends 'layouts/base.html' %} {% block content %}
 <h1>Projects</h1>
 <!--Jinja Loops. Permiten recorrer ciertos elementos de una base de datos y renderizarlos en un html-->
 
 {% for project in projects %}
 <h1>{{project.name}}</h1>
-{% endfor %}
+{% endfor %} {% endblock %}

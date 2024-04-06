@@ -1,0 +1,8 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<h1>Create Project</h1>
+<form action="" method="POST">
+  <!--Se debe usar este token para proteger que no se reciban datos de otros formularios de personas externas-->
+  {% csrf_token %} {{form}}
+  <button>Save</button>
+</form>
+{% endblock %}
