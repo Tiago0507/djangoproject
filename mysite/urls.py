@@ -23,7 +23,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Se trae desde myapp.urls las urls de esa app, y esto es lo que se debe de hacer, pues cada
-    #app debe ser responsable de sus propias urls. La cadena vacía significa que no hay nada que 
-    #hay antes de la ruta que se pone en el include.
+    #app debe ser responsable de sus propias urls. La cadena vacía significa que no hay nada 
+    #antes de la ruta que se pone en el include.
     path('', include('myapp.urls'))
 ]

@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Se trae la app nueva para se pueda conectar el proyecto principal con la aplicación nueva
+    'myapp'
 ]
 
 MIDDLEWARE = [
