@@ -1,7 +1,8 @@
-{% extends 'layouts/base.html' %} {% block content %}
+{% extends 'layouts/base.html' %} {% load static %} {% block content %}
 
 <!--Esto funciona por el motor de plantillas de django-->
 <h1>{{ title }}</h1>
+<img src="{% static 'circuito.jpeg' %}" alt="" width="70" />
 <p>
   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque dignissimos
   reiciendis, atque nulla dolor deleniti nesciunt distinctio? Saepe pariatur ab
